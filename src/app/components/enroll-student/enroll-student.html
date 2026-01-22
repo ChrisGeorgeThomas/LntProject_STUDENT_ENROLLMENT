@@ -1,0 +1,76 @@
+<div id="enrollments" class="enrollment-section">
+  <h2>📝 Student Enrollment Management</h2>
+  
+  <!-- Enrollment Form -->
+  <div class="enrollment-form">
+    <h3>Enroll Student in Course</h3>
+    
+    <div class="form-group">
+      <label>Select Student:</label>
+      <select [(ngModel)]="selectedStudentId" class="form-input">
+        <option [value]="null">-- Choose a Student --</option>
+        <option *ngFor="let s of students" [value]="s.id">
+          {{ s.name }} ({{ s.department }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select Course:</label>
+      <select [(ngModel)]="selectedCourseId" class="form-input">
+        <option [value]="null">-- Choose a Course --</option>
+        <option *ngFor="let c of courses" [value]="c.id">
+          {{ c.title }} - {{ c.code }} (Seats: {{ c.availableSeats }})
+        </option>
+      </select>
+    </div>
+
+    <button class="btn-enroll" (click)="enrollStudent()">
+      ✅ Enroll Student
+    </button>
+
+    <!-- Message -->
+    <div class="message" *ngIf="enrollmentStatus !== 'idle'" [class]="enrollmentStatus">
+      {{ enrollmentMessage }}
+    </div>
+  </div>
+
+  <!-- Current Enrollments -->
+  <div class="enrollments-list">
+    <h3>Current Enrollments</h3>
+    
+    <div *ngIf="enrollments.length > 0; else noEnrollments" class="enrollments-grid">
+      <div class="enrollment-card" *ngFor="let enrollment of enrollments">
+        <div class="enrollment-info">
+          <h4>{{ getStudentName(enrollment.studentId) }}</h4>
+          <p><strong>Course:</strong> {{ getCourseName(enrollment.courseId) }}</p>
+          <p><strong>Date:</strong> {{ enrollment.enrollmentDate | date: 'short' }}</p>
+          <p><strong>Status:</strong> <span class="status-badge" [class]="enrollment.status">{{ enrollment.status }}</span></p>
+        </div>
+        <button class="btn-unenroll" (click)="unenrollStudent(enrollment.id)">
+          ❌ Unenroll
+        </button>
+      </div>
+    </div>
+
+    <ng-template #noEnrollments>
+      <p class="no-data">No active enrollments</p>
+    </ng-template>
+  </div>
+
+  <!-- Student Enrollment Summary -->
+  <div class="summary" *ngIf="students.length > 0">
+    <h3>Student Enrollment Summary</h3>
+    <div class="summary-grid">
+      <div class="summary-card" *ngFor="let student of students">
+        <h4>{{ student.name }}</h4>
+        <p class="count">{{ getStudentEnrollments(student.id).length }} courses enrolled</p>
+        <ul class="course-list">
+          <li *ngFor="let enrollment of getStudentEnrollments(student.id)">
+            {{ getCourseName(enrollment.courseId) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

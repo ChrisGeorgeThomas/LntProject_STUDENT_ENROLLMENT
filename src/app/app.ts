@@ -1,12 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+// Import the building blocks
+import { Navbar } from './components/navbar/navbar';
+import { StudentList } from './components/student-list/student-list';
+import { CourseList } from './components/course-list/course-list';
+import { EnrollStudent } from './components/enroll-student/enroll-student';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CommonModule,
+    Navbar,
+    StudentList,
+    CourseList,
+    EnrollStudent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('student-system');
+  title = 'Student Management Dashboard';
 }

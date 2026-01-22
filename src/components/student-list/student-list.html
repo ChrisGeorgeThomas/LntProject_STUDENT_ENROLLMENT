@@ -1,0 +1,76 @@
+<div id="students" class="student-section">
+  <h2>👥 Students List</h2>
+  
+  <button class="btn-primary" (click)="openForm()" *ngIf="!showForm">
+    ➕ Add New Student
+  </button>
+
+  <!-- Add/Edit Form -->
+  <div class="form-container" *ngIf="showForm">
+    <div class="form-content">
+      <h3>{{ editingId ? 'Edit Student' : 'Add New Student' }}</h3>
+      
+      <input 
+        type="text" 
+        placeholder="Name" 
+        [(ngModel)]="newStudent.name"
+        class="form-input"
+      >
+      
+      <input 
+        type="email" 
+        placeholder="Email" 
+        [(ngModel)]="newStudent.email"
+        class="form-input"
+      >
+      
+      <input 
+        type="text" 
+        placeholder="Department" 
+        [(ngModel)]="newStudent.department"
+        class="form-input"
+      >
+      
+      <input 
+        type="tel" 
+        placeholder="Phone (optional)" 
+        [(ngModel)]="newStudent.phone"
+        class="form-input"
+      >
+      
+      <div class="form-buttons">
+        <button class="btn-success" (click)="saveStudent()">Save</button>
+        <button class="btn-secondary" (click)="closeForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Students Table -->
+  <table class="students-table" *ngIf="students.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of students">
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.department }}</td>
+        <td>{{ s.phone || '-' }}</td>
+        <td class="actions">
+          <button class="btn-edit" (click)="editStudent(s)">✏️ Edit</button>
+          <button class="btn-delete" (click)="deleteStudent(s.id)">🗑️ Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="students.length === 0" class="no-data">No students found</p>
+</div>

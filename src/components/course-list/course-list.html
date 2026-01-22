@@ -1,0 +1,85 @@
+<div id="courses" class="course-section">
+  <h2>📖 Courses List</h2>
+  
+  <button class="btn-primary" (click)="openForm()" *ngIf="!showForm">
+    ➕ Add New Course
+  </button>
+
+  <!-- Add/Edit Form -->
+  <div class="form-container" *ngIf="showForm">
+    <div class="form-content">
+      <h3>{{ editingId ? 'Edit Course' : 'Add New Course' }}</h3>
+      
+      <input 
+        type="text" 
+        placeholder="Title" 
+        [(ngModel)]="newCourse.title"
+        class="form-input"
+      >
+      
+      <input 
+        type="text" 
+        placeholder="Course Code" 
+        [(ngModel)]="newCourse.code"
+        class="form-input"
+      >
+      
+      <input 
+        type="text" 
+        placeholder="Instructor" 
+        [(ngModel)]="newCourse.instructor"
+        class="form-input"
+      >
+
+      <input 
+        type="text" 
+        placeholder="Schedule" 
+        [(ngModel)]="newCourse.schedule"
+        class="form-input"
+      >
+
+      <input 
+        type="text" 
+        placeholder="Description" 
+        [(ngModel)]="newCourse.description"
+        class="form-input"
+      >
+
+      <input 
+        type="number" 
+        placeholder="Total Seats" 
+        [(ngModel)]="newCourse.totalSeats"
+        class="form-input"
+      >
+      
+      <div class="form-buttons">
+        <button class="btn-success" (click)="saveCourse()">Save</button>
+        <button class="btn-secondary" (click)="closeForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses Grid -->
+  <div class="courses-grid" *ngIf="courses.length > 0">
+    <div class="course-card" *ngFor="let c of courses">
+      <div class="course-header">
+        <h3>{{ c.title }}</h3>
+        <span class="course-code">{{ c.code }}</span>
+      </div>
+      
+      <div class="course-body">
+        <p><strong>Instructor:</strong> {{ c.instructor }}</p>
+        <p><strong>Schedule:</strong> {{ c.schedule }}</p>
+        <p><strong>Description:</strong> {{ c.description }}</p>
+        <p><strong>Available Seats:</strong> <span class="seats" [class.full]="c.availableSeats === 0">{{ c.availableSeats }} / {{ c.totalSeats }}</span></p>
+      </div>
+      
+      <div class="course-actions">
+        <button class="btn-edit" (click)="editCourse(c)">✏️ Edit</button>
+        <button class="btn-delete" (click)="deleteCourse(c.id)">🗑️ Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <p *ngIf="courses.length === 0" class="no-data">No courses available</p>
+</div>
