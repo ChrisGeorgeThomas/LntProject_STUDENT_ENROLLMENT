@@ -1,0 +1,33 @@
+<div class="course-list-container">
+  <h2>Available Courses</h2>
+  <div class="courses-grid">
+    <div *ngFor="let course of courses" class="course-card">
+      <div class="course-header">
+        <h3>{{ course.name }}</h3>
+        <span class="course-code">{{ course.code }}</span>
+      </div>
+      <div class="course-details">
+        <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+        <p><strong>Department:</strong> {{ course.department }}</p>
+        <p><strong>Credits:</strong> {{ course.credits }}</p>
+        <p><strong>Schedule:</strong> {{ course.schedule }}</p>
+        <p class="description">{{ course.description }}</p>
+      </div>
+      <div class="enrollment-info">
+        <div class="enrollment-bar">
+          <div
+            class="enrollment-fill"
+            [style.width.%]="course.enrollmentPercentage"
+          ></div>
+        </div>
+        <div class="enrollment-text">
+          <span>{{ course.enrolledStudents }} / {{ course.maxSeats }} Enrolled</span>
+          <span class="status" [ngClass]="getStatusClass(course)">
+            {{ getEnrollmentStatus(course) }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="course-count">Total Courses: {{ courses.length }}</p>
+</div>

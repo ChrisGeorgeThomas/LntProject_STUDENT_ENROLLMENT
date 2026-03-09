@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@university.edu",
+    "department": "Computer Science",
+    "enrollmentDate": "2023-09-01",
+    "phone": "555-0101"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane.smith@university.edu",
+    "department": "Engineering",
+    "enrollmentDate": "2023-09-01",
+    "phone": "555-0102"
+  },
+  {
+    "id": 3,
+    "name": "Mike Johnson",
+    "email": "mike.johnson@university.edu",
+    "department": "Business",
+    "enrollmentDate": "2023-09-15",
+    "phone": "555-0103"
+  },
+  {
+    "id": 4,
+    "name": "Sarah Williams",
+    "email": "sarah.williams@university.edu",
+    "department": "Computer Science",
+    "enrollmentDate": "2023-09-20",
+    "phone": "555-0104"
+  },
+  {
+    "id": 5,
+    "name": "David Brown",
+    "email": "david.brown@university.edu",
+    "department": "Mathematics",
+    "enrollmentDate": "2023-10-01",
+    "phone": "555-0105"
+  }
+]

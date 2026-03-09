@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "code": "CS101",
+    "name": "Introduction to Computer Science",
+    "description": "Learn the fundamentals of computer science",
+    "instructor": "Dr. Sarah Miller",
+    "credits": 3,
+    "maxSeats": 30,
+    "enrolledStudents": 28,
+    "schedule": "MWF 10:00-11:00 AM",
+    "department": "Computer Science"
+  },
+  {
+    "id": 2,
+    "code": "CS202",
+    "name": "Data Structures",
+    "description": "Explore fundamental data structures and algorithms",
+    "instructor": "Dr. James Wilson",
+    "credits": 4,
+    "maxSeats": 25,
+    "enrolledStudents": 20,
+    "schedule": "TuTh 2:00-3:30 PM",
+    "department": "Computer Science"
+  },
+  {
+    "id": 3,
+    "code": "MATH101",
+    "name": "Calculus I",
+    "description": "Introduction to differential calculus",
+    "instructor": "Dr. Robert Chen",
+    "credits": 4,
+    "maxSeats": 35,
+    "enrolledStudents": 32,
+    "schedule": "MWF 11:00 AM-12:00 PM",
+    "department": "Mathematics"
+  },
+  {
+    "id": 4,
+    "code": "ENG101",
+    "name": "English Composition",
+    "description": "Develop writing and communication skills",
+    "instructor": "Prof. Emma Davis",
+    "credits": 3,
+    "maxSeats": 20,
+    "enrolledStudents": 18,
+    "schedule": "TuTh 10:00-11:30 AM",
+    "department": "English"
+  },
+  {
+    "id": 5,
+    "code": "PHY201",
+    "name": "Physics II",
+    "description": "Electricity, magnetism, and optics",
+    "instructor": "Dr. Michael Anderson",
+    "credits": 4,
+    "maxSeats": 28,
+    "enrolledStudents": 25,
+    "schedule": "MWF 1:00-2:00 PM",
+    "department": "Physics"
+  },
+  {
+    "id": 6,
+    "code": "BUS101",
+    "name": "Business Fundamentals",
+    "description": "Introduction to business management",
+    "instructor": "Prof. Linda Thompson",
+    "credits": 3,
+    "maxSeats": 40,
+    "enrolledStudents": 35,
+    "schedule": "TuTh 1:00-2:30 PM",
+    "department": "Business"
+  }
+]

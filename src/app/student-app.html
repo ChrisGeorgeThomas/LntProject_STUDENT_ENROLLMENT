@@ -1,0 +1,40 @@
+<html>
+    <div class="container mt-4">
+        <h2 class="text-center">Student Grades</h2>
+        <div class="mb-3">
+            <label for="filter" class="form-label">Filter by:</label>
+            <select id="filter" class="form-select">[(ngModel)]="selectedFilter">
+                <option value="all">All Students</option>
+                <option value="passed">Passed</option>
+                <option value="failed">Failed</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="sort" class="form-label">Sort by Grade:</label>
+            <button class="btn btn-primary" (click)="sortAsc=!sortAsc">
+                {{ sortAsc ? 'Descending' : 'Ascending' }}
+            </button>
+        </div>
+        <br>
+        <div *ngIf="filteredStudents().length === 0"class="alert alert-danger">
+            No records found.
+        </div>
+            <table *ngIf="filteredStudents().length > 0" class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of filteredStudents()">
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.subject }}</td>
+                        <td [ngClass]="{'pass': student.grade >= 50,'fail': student.grade < 50}"
+                            [ngStyle]="{'color':student.grade<50 ? 'red':'green'}">{{ student.grade }}</td>
+                        </tr>
+                </tbody>
+    </div>
+</html>

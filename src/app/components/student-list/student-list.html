@@ -1,0 +1,28 @@
+<div class="student-list-container">
+  <h2>Student List</h2>
+  <div class="table-wrapper">
+    <table class="student-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Enrollment Date</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.department }}</td>
+          <td>{{ formatDate(student.enrollmentDate) }}</td>
+          <td>{{ student.phone || 'N/A' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="student-count">Total Students: {{ students.length }}</p>
+</div>
